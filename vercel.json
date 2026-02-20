@@ -1,0 +1,15 @@
+{
+  "buildCommand": "cd backend && npm run build",
+  "outputDirectory": "backend/dist",
+  "installCommand": "cd backend && npm install",
+  "env": {
+    "UPSTASH_REDIS_REST_URL": "@upstash_redis_rest_url",
+    "UPSTASH_REDIS_REST_TOKEN": "@upstash_redis_rest_token"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
