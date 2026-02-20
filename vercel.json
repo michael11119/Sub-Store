@@ -1,15 +1,15 @@
 {
-  "buildCommand": "cd backend && npm run build",
+  "buildCommand": "cd backend && npm run bundle:esbuild",
   "outputDirectory": "backend/dist",
   "installCommand": "cd backend && npm install",
   "env": {
     "UPSTASH_REDIS_REST_URL": "@upstash_redis_rest_url",
     "UPSTASH_REDIS_REST_TOKEN": "@upstash_redis_rest_token"
   },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+  "functions": {
+    "api/[...].js": {
+      "runtime": "nodejs18.x",
+      "memory": 1024
     }
-  ]
+  }
 }
